@@ -1,0 +1,566 @@
+vladimir@vladimir-VirtualBox:~$ whoami
+
+vladimir
+
+vladimir@vladimir-VirtualBox:~$ pwd
+
+/home/vladimir
+
+vladimir@vladimir-VirtualBox:~$ cat > Pets.txt << EOF
+
+ID Name Type BirthDate Commands
+
+1 Fido Dog 2020-01-01 Sit, Stay, Fetch
+
+2 Whiskers Cat 2019-05-15 Sit, Pounce
+
+3 Hammy Hamster 2021-03-10 Roll, Hide
+
+4 Buddy Dog 2018-12-10 Sit, Paw, Bark
+
+5 Smudge Cat 2020-02-20 Sit, Pounce, Scratch
+
+6 Peanut Hamster 2021-08-01 Roll, Spin
+
+7 Bella Dog 2019-11-11 Sit, Stay, Roll
+
+8 Oliver Cat 2020-06-30 Meow, Scratch, Jump
+
+EOF
+
+vladimir@vladimir-VirtualBox:~$ cat > PackAnimals.txt << EOF
+
+ID Name Type BirthDate Commands
+
+1 Thunder Horse 2015-07-21 Trot, Canter, Gallop
+
+2 Sandy Camel 2016-11-03 Walk, Carry Load
+
+3 Eeyore Donkey 2017-09-18 Walk, Carry Load, Bray
+
+4 Storm Horse 2014-05-05 Trot, Canter
+
+5 Dune Camel 2018-12-12 Walk, Sit
+
+6 Burro Donkey 2019-01-23 Walk, Bray, Kick
+
+7 Blaze Horse 2016-02-29 Trot, Jump, Gallop
+
+8 Sahara Camel 2015-08-14 Walk, Run
+
+EOF
+
+vladimir@vladimir-VirtualBox:~$ pwd
+
+/home/vladimir
+
+vladimir@vladimir-VirtualBox:~$ cat Pets.txt PackAnimals.txt > Human_Friends.txt
+
+vladimir@vladimir-VirtualBox:~$ cat Human_Friends.txt
+
+ID Name Type BirthDate Commands
+
+1 Fido Dog 2020-01-01 Sit, Stay, Fetch
+
+2 Whiskers Cat 2019-05-15 Sit, Pounce
+
+3 Hammy Hamster 2021-03-10 Roll, Hide
+
+4 Buddy Dog 2018-12-10 Sit, Paw, Bark
+
+5 Smudge Cat 2020-02-20 Sit, Pounce, Scratch
+
+6 Peanut Hamster 2021-08-01 Roll, Spin
+
+7 Bella Dog 2019-11-11 Sit, Stay, Roll
+
+8 Oliver Cat 2020-06-30 Meow, Scratch, Jump
+
+ID Name Type BirthDate Commands
+
+1 Thunder Horse 2015-07-21 Trot, Canter, Gallop
+
+2 Sandy Camel 2016-11-03 Walk, Carry Load
+
+3 Eeyore Donkey 2017-09-18 Walk, Carry Load, Bray
+
+4 Storm Horse 2014-05-05 Trot, Canter
+
+5 Dune Camel 2018-12-12 Walk, Sit
+
+6 Burro Donkey 2019-01-23 Walk, Bray, Kick
+
+7 Blaze Horse 2016-02-29 Trot, Jump, Gallop
+
+8 Sahara Camel 2015-08-14 Walk, Run
+
+vladimir@vladimir-VirtualBox:~$ sed -i '/PackAnimals/d' Human_Friends.txt
+
+vladimir@vladimir-VirtualBox:~$ awk '{$1=NR-1; print}' Human_Friends.txt > temp.txt && mv temp.txt Human_Friends.txt
+
+vladimir@vladimir-VirtualBox:~$ cat Human_Friends.txt
+
+0 Name Type BirthDate Commands
+
+1 Fido Dog 2020-01-01 Sit, Stay, Fetch
+
+2 Whiskers Cat 2019-05-15 Sit, Pounce
+
+3 Hammy Hamster 2021-03-10 Roll, Hide
+
+4 Buddy Dog 2018-12-10 Sit, Paw, Bark
+
+5 Smudge Cat 2020-02-20 Sit, Pounce, Scratch
+
+6 Peanut Hamster 2021-08-01 Roll, Spin
+
+7 Bella Dog 2019-11-11 Sit, Stay, Roll
+
+8 Oliver Cat 2020-06-30 Meow, Scratch, Jump
+
+9 Name Type BirthDate Commands
+
+10 Thunder Horse 2015-07-21 Trot, Canter, Gallop
+
+11 Sandy Camel 2016-11-03 Walk, Carry Load
+
+12 Eeyore Donkey 2017-09-18 Walk, Carry Load, Bray
+
+13 Storm Horse 2014-05-05 Trot, Canter
+
+14 Dune Camel 2018-12-12 Walk, Sit
+
+15 Burro Donkey 2019-01-23 Walk, Bray, Kick
+
+16 Blaze Horse 2016-02-29 Trot, Jump, Gallop
+
+17 Sahara Camel 2015-08-14 Walk, Run
+
+vladimir@vladimir-VirtualBox:~$ sed -i '1s/^0/ID/' Human_Friends.txt
+
+vladimir@vladimir-VirtualBox:~$ cat Human_Friends.txt
+
+ID Name Type BirthDate Commands
+
+1 Fido Dog 2020-01-01 Sit, Stay, Fetch
+
+2 Whiskers Cat 2019-05-15 Sit, Pounce
+
+3 Hammy Hamster 2021-03-10 Roll, Hide
+
+4 Buddy Dog 2018-12-10 Sit, Paw, Bark
+
+5 Smudge Cat 2020-02-20 Sit, Pounce, Scratch
+
+6 Peanut Hamster 2021-08-01 Roll, Spin
+
+7 Bella Dog 2019-11-11 Sit, Stay, Roll
+
+8 Oliver Cat 2020-06-30 Meow, Scratch, Jump
+
+9 Name Type BirthDate Commands
+
+10 Thunder Horse 2015-07-21 Trot, Canter, Gallop
+
+11 Sandy Camel 2016-11-03 Walk, Carry Load
+
+12 Eeyore Donkey 2017-09-18 Walk, Carry Load, Bray
+
+13 Storm Horse 2014-05-05 Trot, Canter
+
+14 Dune Camel 2018-12-12 Walk, Sit
+
+15 Burro Donkey 2019-01-23 Walk, Bray, Kick
+
+16 Blaze Horse 2016-02-29 Trot, Jump, Gallop
+
+17 Sahara Camel 2015-08-14 Walk, Run
+
+vladimir@vladimir-VirtualBox:~$ 
+
+vladimir@vladimir-VirtualBox:~$ sed -i '/Name Type BirthDate Commands/d' Human_Friends.txt
+
+vladimir@vladimir-VirtualBox:~$ cat Human_Friends.txt
+
+1 Fido Dog 2020-01-01 Sit, Stay, Fetch
+
+2 Whiskers Cat 2019-05-15 Sit, Pounce
+
+3 Hammy Hamster 2021-03-10 Roll, Hide
+
+4 Buddy Dog 2018-12-10 Sit, Paw, Bark
+
+5 Smudge Cat 2020-02-20 Sit, Pounce, Scratch
+
+6 Peanut Hamster 2021-08-01 Roll, Spin
+
+7 Bella Dog 2019-11-11 Sit, Stay, Roll
+
+8 Oliver Cat 2020-06-30 Meow, Scratch, Jump
+
+10 Thunder Horse 2015-07-21 Trot, Canter, Gallop
+
+11 Sandy Camel 2016-11-03 Walk, Carry Load
+
+12 Eeyore Donkey 2017-09-18 Walk, Carry Load, Bray
+
+13 Storm Horse 2014-05-05 Trot, Canter
+
+14 Dune Camel 2018-12-12 Walk, Sit
+
+15 Burro Donkey 2019-01-23 Walk, Bray, Kick
+
+16 Blaze Horse 2016-02-29 Trot, Jump, Gallop
+
+17 Sahara Camel 2015-08-14 Walk, Run
+
+vladimir@vladimir-VirtualBox:~$ sed -i '1i\ID Name Type BirthDate Commands' Human_Friends.txt
+
+vladimir@vladimir-VirtualBox:~$ cat Human_Friends.txt
+
+ID Name Type BirthDate Commands
+
+1 Fido Dog 2020-01-01 Sit, Stay, Fetch
+
+2 Whiskers Cat 2019-05-15 Sit, Pounce
+
+3 Hammy Hamster 2021-03-10 Roll, Hide
+
+4 Buddy Dog 2018-12-10 Sit, Paw, Bark
+
+5 Smudge Cat 2020-02-20 Sit, Pounce, Scratch
+
+6 Peanut Hamster 2021-08-01 Roll, Spin
+
+7 Bella Dog 2019-11-11 Sit, Stay, Roll
+
+8 Oliver Cat 2020-06-30 Meow, Scratch, Jump
+
+10 Thunder Horse 2015-07-21 Trot, Canter, Gallop
+
+11 Sandy Camel 2016-11-03 Walk, Carry Load
+
+12 Eeyore Donkey 2017-09-18 Walk, Carry Load, Bray
+
+13 Storm Horse 2014-05-05 Trot, Canter
+
+14 Dune Camel 2018-12-12 Walk, Sit
+
+15 Burro Donkey 2019-01-23 Walk, Bray, Kick
+
+16 Blaze Horse 2016-02-29 Trot, Jump, Gallop
+
+17 Sahara Camel 2015-08-14 Walk, Run
+
+-- проще вручную скорректировать iD!
+
+vladimir@vladimir-VirtualBox:~$ 
+
+vladimir@vladimir-VirtualBox:~$ ls
+
+Desktop    Human_Friends.txt  Pets.txt  snap       testfolder
+
+Documents  Music              Pictures  Templates  Videos
+
+Downloads  PackAnimals.txt    Public    test
+
+vladimir@vladimir-VirtualBox:~$
+
+vladimir@vladimir-VirtualBox:~$ 
+
+vladimir@vladimir-VirtualBox:~$ mkdir My_pets
+
+vladimir@vladimir-VirtualBox:~$ mv Human_Friends.txt My_pets/
+
+vladimir@vladimir-VirtualBox:~$ pwd
+
+/home/vladimir
+
+vladimir@vladimir-VirtualBox:~$ cd My_pets
+
+vladimir@vladimir-VirtualBox:~/My_pets$ ls
+
+Human_Friends.txt
+
+vladimir@vladimir-VirtualBox:~/My_pets$ cat Human_Friends.txt
+
+ID Name Type BirthDate Commands
+
+1 Fido Dog 2020-01-01 Sit, Stay, Fetch
+
+2 Whiskers Cat 2019-05-15 Sit, Pounce
+
+3 Hammy Hamster 2021-03-10 Roll, Hide
+
+4 Buddy Dog 2018-12-10 Sit, Paw, Bark
+
+5 Smudge Cat 2020-02-20 Sit, Pounce, Scratch
+
+6 Peanut Hamster 2021-08-01 Roll, Spin
+
+7 Bella Dog 2019-11-11 Sit, Stay, Roll
+
+8 Oliver Cat 2020-06-30 Meow, Scratch, Jump
+
+10 Thunder Horse 2015-07-21 Trot, Canter, Gallop
+
+11 Sandy Camel 2016-11-03 Walk, Carry Load
+
+12 Eeyore Donkey 2017-09-18 Walk, Carry Load, Bray
+
+13 Storm Horse 2014-05-05 Trot, Canter
+
+14 Dune Camel 2018-12-12 Walk, Sit
+
+15 Burro Donkey 2019-01-23 Walk, Bray, Kick
+
+16 Blaze Horse 2016-02-29 Trot, Jump, Gallop
+
+17 Sahara Camel 2015-08-14 Walk, Run
+
+vladimir@vladimir-VirtualBox:~/My_pets$ 
+
+vladimir@vladimir-VirtualBox:~/My_pets$ cd
+
+vladimir@vladimir-VirtualBox:~$ pwd
+
+/home/vladimir
+
+vladimir@vladimir-VirtualBox:~$ ~sudo apt update
+
+Command '~sudo' not found, did you mean:
+
+  command 'sudo' from deb sudo (1.9.9-1ubuntu2.4)
+
+  command 'sudo' from deb sudo-ldap (1.9.9-1ubuntu2.4)
+
+Try: sudo apt install <deb name>
+
+vladimir@vladimir-VirtualBox:~$ sudo apt update
+
+[sudo] password for vladimir: 
+
+Hit:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+
+Get:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]      
+
+Get:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]       
+
+Get:4 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease [109 kB]    
+
+Get:5 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [620 kB]
+
+Get:6 https://download.docker.com/linux/ubuntu jammy InRelease [48,8 kB]        
+
+Get:7 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1 612 kB]
+
+Get:8 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [1 394 kB]
+
+Get:9 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages [31,5 kB]
+
+Get:10 http://security.ubuntu.com/ubuntu jammy-security/main i386 Packages [453 kB]
+
+Get:11 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [243 kB]
+
+Get:12 http://security.ubuntu.com/ubuntu jammy-security/restricted i386 Packages [36,5 kB]
+
+Get:13 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [1 773 kB]
+
+Get:14 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [300 kB]
+
+Get:15 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [848 kB]
+
+Get:16 http://security.ubuntu.com/ubuntu jammy-security/universe i386 Packages [601 kB]
+
+Get:17 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [163 kB]
+
+Get:18 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [37,2 kB]
+
+Get:19 http://security.ubuntu.com/ubuntu jammy-security/multiverse Translation-en [7 588 B]
+
+Get:20 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [304 kB]
+
+Get:21 http://ru.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [1 830 kB]
+
+Get:22 http://ru.archive.ubuntu.com/ubuntu jammy-updates/restricted i386 Packages [38,1 kB]
+
+Get:23 http://ru.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [311 kB]
+
+Get:24 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1 072 kB]
+
+Get:25 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe i386 Packages [701 kB]
+
+Get:26 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [245 kB]
+
+Get:27 http://ru.archive.ubuntu.com/ubuntu jammy-updates/multiverse i386 Packages [4 472 B]
+
+Get:28 http://ru.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [42,7 kB]
+
+Get:29 http://ru.archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [10,4 kB]
+
+Get:30 http://ru.archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [67,1 kB]
+
+Get:31 http://ru.archive.ubuntu.com/ubuntu jammy-backports/main i386 Packages [59,3 kB]
+
+Get:32 http://ru.archive.ubuntu.com/ubuntu jammy-backports/main Translation-en [11,0 kB]
+
+Get:33 http://ru.archive.ubuntu.com/ubuntu jammy-backports/universe i386 Packages [16,0 kB]
+
+Get:34 http://ru.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [27,2 kB]
+
+Get:35 http://ru.archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [16,2 kB]
+
+Fetched 13,3 MB in 4s (3 014 kB/s)                                    
+
+Reading package lists... Done
+
+Building dependency tree... Done
+
+Reading state information... Done
+
+129 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+W: https://download.docker.com/linux/ubuntu/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+
+vladimir@vladimir-VirtualBox:~$ 
+
+vladimir@vladimir-VirtualBox:~$ sudo systemctl status mysql
+
+● mysql.service - MySQL Community Server
+
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+
+     Active: active (running) since Fri 2024-05-03 01:00:48 MSK; 1min 31s ago
+
+    Process: 5708 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUC>
+
+   Main PID: 5717 (mysqld)
+
+     Status: "Server is operational"
+
+      Tasks: 37 (limit: 4598)
+
+     Memory: 365.6M
+
+        CPU: 980ms
+
+     CGroup: /system.slice/mysql.service
+
+             └─5717 /usr/sbin/mysqld
+
+
+
+мая 01 01:00:47 vladimir-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+мая 01 01:00:48 vladimir-VirtualBox systemd[1]: Started MySQL Community Server.
+
+vladimir@vladimir-VirtualBox:~$ 
+
+vladimir@vladimir-VirtualBox:~$ 
+
+vladimir@vladimir-VirtualBox:~$ sudo apt install mysql-workbench
+
+Reading package lists... Done
+
+Building dependency tree... Done
+
+Reading state information... Done
+
+E: Unable to locate package mysql-workbench
+
+vladimir@vladimir-VirtualBox:~$ sudo apt update
+
+Hit:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+
+Get:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]                        
+
+Hit:3 http://security.ubuntu.com/ubuntu jammy-security InRelease                                  
+
+Hit:4 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease 
+
+Hit:5 https://download.docker.com/linux/ubuntu jammy InRelease
+
+Fetched 119 kB in 1s (144 kB/s)
+
+Reading package lists... Done
+
+Building dependency tree... Done
+
+Reading state information... Done
+
+129 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+W: https://download.docker.com/linux/ubuntu/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+
+vladimir@vladimir-VirtualBox:~$ sudo apt install software-properties-common
+
+Reading package lists... Done
+
+Building dependency tree... Done
+
+Reading state information... Done
+
+software-properties-common is already the newest version (0.99.22.9).
+
+The following packages were automatically installed and are no longer required:
+
+  libnginx-mod-http-geoip2 libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter
+
+  libnginx-mod-mail libnginx-mod-stream libnginx-mod-stream-geoip2 nginx-common nginx-core
+
+Use 'sudo apt autoremove' to remove them.
+
+0 upgraded, 0 newly installed, 0 to remove and 129 not upgraded.
+
+vladimir@vladimir-VirtualBox:~$ sudo add-apt-repository universe
+
+Adding component(s) 'universe' to all repositories.
+
+Press [ENTER] to continue or Ctrl-c to cancel.
+
+Hit:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+
+Hit:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease                       
+
+Hit:3 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease                               
+
+Hit:4 https://download.docker.com/linux/ubuntu jammy InRelease                                    
+
+Hit:5 http://security.ubuntu.com/ubuntu jammy-security InRelease           
+
+Reading package lists... Done
+
+W: https://download.docker.com/linux/ubuntu/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+
+vladimir@vladimir-VirtualBox:~$ sudo apt install mysql-workbench
+
+Reading package lists... Done
+
+Building dependency tree... Done
+
+Reading state information... Done
+
+E: Unable to locate package mysql-workbench
+
+vladimir@vladimir-VirtualBox:~$ echo ?????
+
+Music
+
+vladimir@vladimir-VirtualBox:~$ sudo apt-get remove mysql-workbench
+
+Reading package lists... Done
+
+Building dependency tree... Done
+
+Reading state information... Done
+
+E: Unable to locate package mysql-workbench
+
+vladimir@vladimir-VirtualBox:~$ 
+
+
+
+
+
+ 
+

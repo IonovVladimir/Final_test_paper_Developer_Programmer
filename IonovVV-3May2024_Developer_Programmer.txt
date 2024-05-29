@@ -1,0 +1,171 @@
+519  whoami
+
+  520  pwd
+
+  521  cat > Pets.txt << EOF
+
+  522  ID Name Type BirthDate Commands
+
+  523  1 Fido Dog 2020-01-01 Sit, Stay, Fetch
+
+  524  2 Whiskers Cat 2019-05-15 Sit, Pounce
+
+  525  3 Hammy Hamster 2021-03-10 Roll, Hide
+
+  526  4 Buddy Dog 2018-12-10 Sit, Paw, Bark
+
+  527  5 Smudge Cat 2020-02-20 Sit, Pounce, Scratch
+
+  528  6 Peanut Hamster 2021-08-01 Roll, Spin
+
+  529  7 Bella Dog 2019-11-11 Sit, Stay, Roll
+
+  530  8 Oliver Cat 2020-06-30 Meow, Scratch, Jump
+
+  531  EOF
+
+  532  whoami
+
+  533  pwd
+
+  534  cat > Pets.txt << EOF
+
+  535  ID Name Type BirthDate Commands
+
+  536  1 Fido Dog 2020-01-01 Sit, Stay, Fetch
+
+  537  2 Whiskers Cat 2019-05-15 Sit, Pounce
+
+  538  3 Hammy Hamster 2021-03-10 Roll, Hide
+
+  539  4 Buddy Dog 2018-12-10 Sit, Paw, Bark
+
+  540  5 Smudge Cat 2020-02-20 Sit, Pounce, Scratch
+
+  541  6 Peanut Hamster 2021-08-01 Roll, Spin
+
+  542  7 Bella Dog 2019-11-11 Sit, Stay, Roll
+
+  543  8 Oliver Cat 2020-06-30 Meow, Scratch, Jump
+
+  544  EOF
+
+  545  whoami
+
+  546  pwd
+
+  547  cat > Pets.txt << EOF
+
+ID Name Type BirthDate Commands
+
+1 Fido Dog 2020-01-01 Sit, Stay, Fetch
+
+2 Whiskers Cat 2019-05-15 Sit, Pounce
+
+3 Hammy Hamster 2021-03-10 Roll, Hide
+
+4 Buddy Dog 2018-12-10 Sit, Paw, Bark
+
+5 Smudge Cat 2020-02-20 Sit, Pounce, Scratch
+
+6 Peanut Hamster 2021-08-01 Roll, Spin
+
+7 Bella Dog 2019-11-11 Sit, Stay, Roll
+
+8 Oliver Cat 2020-06-30 Meow, Scratch, Jump
+
+EOF
+
+
+
+  548  cat > PackAnimals.txt << EOF
+
+ID Name Type BirthDate Commands
+
+1 Thunder Horse 2015-07-21 Trot, Canter, Gallop
+
+2 Sandy Camel 2016-11-03 Walk, Carry Load
+
+3 Eeyore Donkey 2017-09-18 Walk, Carry Load, Bray
+
+4 Storm Horse 2014-05-05 Trot, Canter
+
+5 Dune Camel 2018-12-12 Walk, Sit
+
+6 Burro Donkey 2019-01-23 Walk, Bray, Kick
+
+7 Blaze Horse 2016-02-29 Trot, Jump, Gallop
+
+8 Sahara Camel 2015-08-14 Walk, Run
+
+EOF
+
+
+
+  549  pwd
+
+  550  cat Pets.txt PackAnimals.txt > Human_Friends.txt
+
+  551  cat Human_Friends.txt
+
+  552  sed -i '/PackAnimals/d' Human_Friends.txt
+
+  553  awk '{$1=NR-1; print}' Human_Friends.txt > temp.txt && mv temp.txt Human_Friends.txt
+
+  554  cat Human_Friends.txt
+
+  555  sed -i '1s/^0/ID/' Human_Friends.txt
+
+  556  cat Human_Friends.txt
+
+  557  sed -i '/Name Type BirthDate Commands/d' Human_Friends.txt
+
+  558  cat Human_Friends.txt
+
+  559  sed -i '1i\ID Name Type BirthDate Commands' Human_Friends.txt
+
+  560  cat Human_Friends.txt
+
+  561  ls
+
+  562  mkdir My_pets
+
+  563  mv Human_Friends.txt My_pets/
+
+  564  pwd
+
+  565  cd My_pets
+
+  566  ls
+
+  567  cat Human_Friends.txt
+
+  568  cd
+
+  569  pwd
+
+  570  sudo apt update
+
+  571  ~sudo apt update
+
+  572  sudo apt update
+
+  573  sudo apt install mysql-server
+
+  574  sudo systemctl status mysql
+
+  575  sudo apt install mysql-workbench
+
+  576  sudo apt update
+
+  577  sudo apt install software-properties-common
+
+  578  sudo add-apt-repository universe
+
+  579  sudo apt install mysql-workbench
+
+  580  echo ?????
+
+  581  sudo apt-get remove mysql-workbench
+
+  582  history 
